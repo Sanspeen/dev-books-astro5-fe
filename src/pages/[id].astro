@@ -1,0 +1,44 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+export async function getStaticPaths() {
+    const books = await getCollection("books");
+    console.log(books[0].id);
+    return books.map((book) => ({
+        params: {
+            id: book.id
+        },
+        props: {
+            book
+        }
+    }));
+
+    // return [
+    //     {
+    //         params: { id: "aprendiendo-git" },
+    //         props: { title: "Aprendiendo Git y Github" },
+    //     },
+    //     {
+    //         params: { id: "learning-typescript" },
+    //         props: { title: "Aprendiendo Typescript" },
+    //     },
+    //     {
+    //         params: { id: "programador-pragmatico" },
+    //         props: { title: "Programador Pragmatico" },
+    //     },
+    //     {
+    //         params: { id: "refactoring" },
+    //         props: { title: "Que es el 'Refactoring'?" },
+    //     },
+    // ];
+}
+
+const { book } = Astro.props;
+const { data } = book;
+const { title, author, img, readtime, description, buy } = data;
+---
+
+<Layout title=`${title} - Dev Books`>
+    <h1>{title}</h1>
+</Layout>

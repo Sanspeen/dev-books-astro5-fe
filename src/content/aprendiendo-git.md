@@ -1,4 +1,5 @@
 ---
+id: aprendiendo-git
 title: Aprendiendo Git y GitHub
 author: Miguel Ángel Durán
 img: aprendiendo-git.jpg
