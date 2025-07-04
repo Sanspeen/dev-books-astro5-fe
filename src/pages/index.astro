@@ -22,11 +22,19 @@ console.log(books);
 						return (
 							<article>
 								<a href={`/${id}`} class="mb-2 xl:mb-0 transition hover:scale-110">
-									<img class="mr-5 w-48 rounded" src=`/${img}` alt={title}, class="w-full-rounded-lg"/>
+									<img 
+										transition:name=`img-${id}`
+										class="mr-5 w-48 rounded"
+										 src=`/${img}` alt={title}
+										class="w-full-rounded-lg"
+									/>
 								</a>
 
 								<div class="flex flex-col justify-center">
-									<h2 class="mb-2 text-2xl font-bold leading-tight text-white">
+									<h2 
+										transition:name={`title-${title}`}
+										class="mb-2 text-2xl font-bold leading-tight text-white"
+									>
 										{title}
 									</h2>
 									<p class="mb-4 text-gray-300 max-w-sm">{description}</p>
