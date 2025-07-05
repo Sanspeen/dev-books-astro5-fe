@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection} from "astro:content";
+
+export const prerender = true
+
 const books = await getCollection("books");
-console.log(books);
 ---
 
 <Layout title="Dev books, libros para programadores">
